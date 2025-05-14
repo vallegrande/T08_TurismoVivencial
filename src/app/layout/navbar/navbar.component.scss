@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(21, 115, 78, 0.8); // verde con transparencia
+    color: white;
+
+    &__logo img {
+        height: 40px;
+    }
+
+    &__menu {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+
+        li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__user {
+        .user-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            img {
+                height: 24px;
+                filter: invert(1);
+            }
+        }
+    }
+}

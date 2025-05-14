@@ -1,0 +1,183 @@
+:host {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.hero {
+    background-image: url('/images/front/front.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+
+        h1 {
+            font-weight: bold;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+        }
+
+        .hero-buttons {
+            margin-top: 1rem;
+
+            button {
+                margin: 0 0.5rem;
+                padding: 0.8rem 1.5rem;
+                border-radius: 6px;
+                font-weight: bold;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+
+            .btn-primary {
+                background-color: #15734e;
+                color: white;
+                border: none;
+            }
+
+            .btn-secondary {
+                background-color: white;
+                color: black;
+                border: none;
+            }
+        }
+    }
+}
+
+.search-experiences {
+    padding: 1rem 2rem;
+
+    h2 {
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .filters {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+
+        select {
+            padding: 0.7rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-weight: bold;
+            min-width: 150px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2211%22%20height%3D%227%22%20viewBox%3D%220%200%2011%207%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0.5%200.5L5.5%206.5L10.5%200.5H0.5Z%22%20fill%3D%22%23625D5D%22/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 11px 7px;
+            cursor: pointer;
+            color: #444;
+            font-size: 1rem;
+        }
+
+        button.btn-search {
+            background-color: #15734e;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            padding: 0.7rem 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #115c3c;
+            }
+        }
+    }
+
+    h3 {
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .experiences-carousel {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        button.mat-icon-button {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #15734e;
+            font-weight: bold;
+
+            &:disabled {
+                color: #ccc;
+                cursor: default;
+            }
+        }
+
+        .cards-wrapper {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 0.5rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .cards-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            min-width: 180px;
+            flex: 0 0 auto;
+            text-align: center;
+
+            img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            p {
+                margin-top: 0.5rem;
+                font-weight: bold;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    .search-experiences .filters {
+        flex-direction: column;
+        gap: 0.8rem;
+
+        select,
+        button.btn-search {
+            width: 100%;
+            min-width: unset;
+            font-size: 1rem;
+        }
+    }
+
+    .experiences-carousel .cards-wrapper .card img {
+        height: 100px;
+    }
+}

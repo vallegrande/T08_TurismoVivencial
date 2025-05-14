@@ -1,0 +1,57 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            VIVE COMO UN LOCAL,<br/>
+            VIAJA CON EL CORAZÓN
+        </h1>
+        <div class="hero-buttons">
+            <button mat-flat-button color="primary" class="btn-primary">NUESTRAS EXPERIENCIAS</button>
+            <button mat-flat-button class="btn-secondary">ÚNETE A NOSOTROS</button>
+        </div>
+    </div>
+</section>
+
+<section class="search-experiences">
+    <h2>BUSCAR EXPERIENCIAS</h2>
+
+    <div class="filters">
+        <select aria-label="Fecha">
+            <option disabled selected>FECHA</option>
+            <option>01/06/2025</option>
+            <option>02/06/2025</option>
+        </select>
+        <select aria-label="Número de días">
+            <option disabled selected>N° Días</option>
+            <option>1</option>
+            <option>2</option>
+        </select>
+        <select aria-label="Tipos de experiencia">
+            <option disabled selected>TIPOS DE EXP</option>
+            <option>Alojamiento</option>
+            <option>Actividades de cocina tradicional</option>
+            <option>Actividades agrícolas</option>
+            <option>Taller de costura</option>
+            <option>Taller de ordeño</option>
+        </select>
+        <button mat-flat-button color="primary" class="btn-search">BUSCAR</button>
+    </div>
+
+    <h3>EXPERIENCIAS DESTACADAS</h3>
+
+    <div class="experiences-carousel">
+        <button mat-icon-button aria-label="Anterior" (click)="scrollLeft()">
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+
+        <div class="cards-wrapper" #cardsWrapper>
+            <div class="card" *ngFor="let exp of experiences">
+                <img [src]="exp.img" [alt]="exp.title" />
+                <p><strong>{{ exp.title }}</strong></p>
+            </div>
+        </div>
+
+        <button mat-icon-button aria-label="Siguiente" (click)="scrollRight()">
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+    </div>
+</section>
