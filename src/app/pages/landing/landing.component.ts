@@ -2,11 +2,12 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ButtonComponent } from '../../shared/button/button.component';  // Importa aquí
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, NgFor, MatButtonModule, MatIconModule],
+  imports: [CommonModule, NgFor, MatButtonModule, MatIconModule, ButtonComponent], // Agrega aquí
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })
