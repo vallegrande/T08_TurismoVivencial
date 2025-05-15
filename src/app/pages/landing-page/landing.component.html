@@ -46,7 +46,7 @@
         </button>
 
         <div class="cards-wrapper" #cardsWrapper>
-            <div class="card" *ngFor="let exp of experiences">
+            <div class="card" *ngFor="let exp of duplicatedExperiences">
                 <img [src]="exp.img" [alt]="exp.title" />
                 <p><strong>{{ exp.title }}</strong></p>
             </div>

@@ -9,7 +9,7 @@ export const routes: Routes = [
             {
                 path: '',
                 loadComponent: () =>
-                    import('./pages/landing/landing.component').then(m => m.LandingComponent),
+                    import('./pages/landing-page/landing.component').then(m => m.LandingComponent),
             },
             // Puedes agregar más rutas hijas aquí
         ],
