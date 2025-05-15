@@ -23,7 +23,9 @@
 
         .hero-buttons {
             margin-top: 1rem;
-            /* Botones quitados, usa componente externo */
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
     }
 }
@@ -42,12 +44,13 @@
         gap: 1rem;
         align-items: center;
         margin-bottom: 2rem;
-        flex-wrap: wrap;
 
         justify-content: center;
-        max-width: 700px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
+
+        flex-wrap: nowrap;
 
         select {
             padding: 0.7rem;
@@ -65,18 +68,26 @@
             font-size: 1rem;
         }
 
-        /* Botón quitado para usar componente botón */
+        .select-and-button {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
     }
 
     h3 {
         font-weight: bold;
-        margin-bottom: 1rem;
+        margin: 2rem 0 1rem;
+        text-align: center;
     }
 
     .experiences-carousel {
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        max-width: 900px;
+        margin: 0 auto;
 
         button.mat-icon-button {
             font-size: 2rem;
@@ -100,6 +111,7 @@
             padding-bottom: 0.5rem;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            flex-grow: 1;
         }
 
         .cards-wrapper::-webkit-scrollbar {
@@ -142,5 +154,9 @@
 
     .experiences-carousel .cards-wrapper .card img {
         height: 100px;
+    }
+
+    .experiences-carousel .cards-wrapper .card p {
+        font-size: 0.8rem;
     }
 }

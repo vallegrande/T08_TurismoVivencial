@@ -10,7 +10,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class ButtonComponent {
   @Input() label = 'Button';
-  @Input() color = 'primary'; // por ejemplo: 'primary', 'accent', 'warn', o cualquier clase CSS
+  @Input() color = 'primary'; 
   @Input() route: string | null = null;
   @Input() disabled = false;
 
