@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { ButtonComponent } from '../../shared/button/button.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-landing',
@@ -38,10 +38,12 @@ export class LandingComponent implements AfterViewInit {
   ngAfterViewInit() {
     const card = this.cardsWrapper.nativeElement.querySelector('.card') as HTMLElement;
     if (card) {
-      const style = window.getComputedStyle(card);
-      const width = card.offsetWidth;
-      const marginRight = parseInt(style.marginRight, 10);
-      this.cardWidth = width + marginRight;
+      if (typeof window !== 'undefined') {
+        const style = window.getComputedStyle(card);
+        const width = card.offsetWidth;
+        const marginRight = parseInt(style.marginRight, 10);
+        this.cardWidth = width + marginRight;
+      }
     }
     this.cardsWrapper.nativeElement.scrollLeft = 0;
   }
