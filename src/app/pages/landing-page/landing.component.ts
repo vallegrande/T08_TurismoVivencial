@@ -13,6 +13,7 @@ import { ButtonComponent } from '../../shared/button/button.component';
 })
 export class LandingComponent implements AfterViewInit {
   @ViewChild('cardsWrapper', { static: true }) cardsWrapper!: ElementRef<HTMLDivElement>;
+  cardWidth = 0;
 
   experiences = [
     { title: 'Alojamiento', img: 'images/experiences/alojamiento.jpg' },
@@ -29,33 +30,35 @@ export class LandingComponent implements AfterViewInit {
     { title: 'Tarde de juegos', img: 'images/experiences/juegos.jpg' }
   ];
 
-  // Duplicamos el array para efecto scroll infinito visual
+  // Duplicamos el arreglo para el efecto infinito
   get duplicatedExperiences() {
     return [...this.experiences, ...this.experiences];
   }
 
   ngAfterViewInit() {
-    // Opcional: Si quieres que el scroll empiece desde mitad para loop seamless
+    const card = this.cardsWrapper.nativeElement.querySelector('.card') as HTMLElement;
+    if (card) {
+      const style = window.getComputedStyle(card);
+      const width = card.offsetWidth;
+      const marginRight = parseInt(style.marginRight, 10);
+      this.cardWidth = width + marginRight;
+    }
     this.cardsWrapper.nativeElement.scrollLeft = 0;
   }
 
   scrollLeft() {
     const container = this.cardsWrapper.nativeElement;
-    const scrollAmount = 180;
     if (container.scrollLeft === 0) {
-      // Salto al final menos lo que va a desplazar
       container.scrollLeft = container.scrollWidth / 2;
     }
-    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    container.scrollBy({ left: -this.cardWidth, behavior: 'smooth' });
   }
 
   scrollRight() {
     const container = this.cardsWrapper.nativeElement;
-    const scrollAmount = 180;
     if (container.scrollLeft >= container.scrollWidth / 2) {
-      // Salto al inicio
       container.scrollLeft = 0;
     }
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    container.scrollBy({ left: this.cardWidth, behavior: 'smooth' });
   }
 }
